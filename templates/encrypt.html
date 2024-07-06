@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Light blue background */
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .messages {
+            flex: 1;
+            overflow-y: scroll;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #ffffff; /* White background for messages */
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 60%;
+        }
+        .message.sent {
+            background-color: #007bff;
+            color: white;
+            margin-left: auto;
+        }
+        .message.received {
+            background-color: #e9ecef;
+            color: black;
+        }
+        .input-group {
+            margin-top: auto;
+        }
+        .navbar {
+            background-color: #4caf50; /* Green navbar */
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="{{ url_for('index') }}">Chat App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('encrypt') }}">Encrypt a Message</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('decrypt') }}">Decrypt a Message</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container chat-container" style="padding-top: 60px;">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="messages" id="chatMessages">
+                    <!-- Example messages -->
+                    <div class="message received">
+                        Hello! How can I help you today?
+                    </div>
+                    <div class="message sent">
+                        I need some information about your services.
+                    </div>
+                </div>
+                <form method="POST" autocomplete="off" novalidate>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="message" name="message" placeholder="Type a message" required>
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="phone_number">Phone Number:</label>
+                        <input type="tel" class="form-control" id="phone_number" name="phone_number" pattern="^\+?[1-9]\d{1,14}$" required>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
