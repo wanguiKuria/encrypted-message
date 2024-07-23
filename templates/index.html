@@ -9,8 +9,17 @@
     <style>
         body {
             padding-top: 50px;
-            background: #f0f8ff; 
+            background: #ffe4e1; /* Light pink background */
             background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Subtle pattern */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .navbar {
+            margin-bottom: 20px;
+            background-color: #ff69b4; /* Hot pink background for navbar */
         }
         .nav-link {
             color: white !important;
@@ -18,37 +27,34 @@
         .nav-link:hover {
             color: lightgray !important;
         }
-        .navbar {
-            margin-bottom: 20px;
-            background-color: #4caf50; 
-        }
         .jumbotron {
             background-color: #ffffff; 
             padding: 2rem 1rem;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             border-radius: 10px;
+            text-align: center;
         }
         .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
+            background-color: #ff1493; /* Deep pink */
+            border-color: #ff1493;
         }
         .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
+            background-color: #c71585; /* Medium violet red */
+            border-color: #c71585;
         }
         .btn-secondary {
-            background-color: #6c757d;
-            border-color: #6c757d;
+            background-color: #ff69b4; /* Hot pink */
+            border-color: #ff69b4;
         }
         .btn-secondary:hover {
-            background-color: #5a6268;
-            border-color: #545b62;
+            background-color: #ff1493; /* Deep pink */
+            border-color: #ff1493;
         }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand" href="{{ url_for('index') }}">Encryption App</a>
+        <a class="navbar-brand" href="{{ url_for('index') }}">CryptoGuard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -64,9 +70,9 @@
         </div>
     </nav>
     
-    <div class="container">
-        <div class="jumbotron text-center">
-            <h1 class="display-4">Welcome to the Encryption Chat App</h1>
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to the CryptoGuard</h1>
             <p class="lead">Encrypt and decrypt messages securely with ease.</p>
             <a class="btn btn-primary btn-lg" href="{{ url_for('encrypt') }}" role="button">Encrypt a Message</a>
             <a class="btn btn-secondary btn-lg" href="{{ url_for('decrypt') }}" role="button">Decrypt a Message</a>
@@ -94,3 +100,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
