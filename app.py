@@ -106,7 +106,7 @@ def validate_phone_number(phone_number):
 # Send an SMS using the Twilio API
 def send_sms(to, body):
     account_sid = os.getenv('TWILIO_ACCOUNT_SID')
-    auth_token = os.getenv('TWILIO_AUTH_TOKEN')
+    auth_token= os.getenv('TWILIO_AUTH_TOKEN')
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         body=body,
